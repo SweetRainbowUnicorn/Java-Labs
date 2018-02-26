@@ -4,7 +4,6 @@ import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 import enums.AnimalType;
-import java.util.Collections;
 
 public class Savanna {
     public enum Season {DRY, WET};
@@ -23,7 +22,6 @@ public class Savanna {
     private List<SavannaAnimal> animals = new LinkedList<>();
     private List<SavannaAnimal> result = new LinkedList<>();
     public List<SavannaAnimal> findBigCarnivores(int mealWeight) {
-       // List<SavannaAnimal> result = new LinkedList<>();
         for (SavannaAnimal animal : animals) {
             if (animal.getType() == AnimalType.CARNIVORE && animal.getFoodWeightPerDay() >= mealWeight) {
                 result.add(animal);

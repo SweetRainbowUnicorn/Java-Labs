@@ -11,6 +11,11 @@ import savanna.SavannaAnimal;
 import java.util.List;
 
 public class Main {
+    public static void PrintList(List<SavannaAnimal> List){
+        List.forEach((SavannaAnimal x) -> {
+            System.out.println(x.toString());
+        });
+    }
 
     public static void main(String[] args) {
         Savanna savanna = new Savanna(Savanna.Season.DRY, Savanna.Mainland.AFRICA, 54578.47);
@@ -31,8 +36,10 @@ public class Main {
                 47, 6, TimeOfActivity.NIGHT, "Zebras, gnus, lions, rhinos and carrion", 5));
         savanna.addAnimal(new TrueCarnivore("Jakal","Canidae", AnimalType.CARNIVORE, 13, 12,
                 TimeOfActivity.NIGHT, "Small animals, birds, carrion", 4));
-        System.out.println(savanna.toString());
-
+       // System.out.println(savanna.toString());
+        PrintList(savanna.getAnimals());
+        System.out.println("Animals that eat more than 5 kg of meat per day:");
+        
         List<SavannaAnimal> animals = savanna.findBigCarnivores(5);
         savanna.sortByName(animals);
         for (SavannaAnimal animal: animals) {
