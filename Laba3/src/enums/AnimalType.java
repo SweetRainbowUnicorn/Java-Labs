@@ -1,3 +1,3 @@
 package enums;
 
-public enum AnimalType {HERBIVORES, CARNIVORES};
+public enum AnimalType {HERBIVORE, CARNIVORE};

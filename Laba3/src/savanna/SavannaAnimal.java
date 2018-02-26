@@ -3,60 +3,71 @@ package savanna;
 import enums.AnimalType;
 
 public abstract class SavannaAnimal {
-	private String name;
-	private String family;
-	private AnimalType type;
-	private int weight;
-	private int lifetime;
-	
-	public SavannaAnimal(String name, String family, AnimalType type, int weight, int lifetime) {
-		this.name=name;
-		this.family=family;
-		this.type=type;
-		this.weight=weight;
-		this.lifetime=lifetime;
-	}
-	
-	public String getName() {
-		return name;
-	}
+    private String name;
+    private String family;
+    private AnimalType type;
+    private int weight;
+    private int lifetime;
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public SavannaAnimal(String name, String family, AnimalType type, int weight, int lifetime) {
+        this.name=name;
+        this.family=family;
+        this.type=type;
+        this.weight=weight;
+        this.lifetime=lifetime;
+    }
 
-	public String getFamily() {
-		return family;
-	}
+    @Override
+    public String toString() {
+        return "\n" + "SavannaAnimal{" +
+                "name='" + name + '\'' +
+                ", family='" + family + '\'' +
+                ", type=" + type +
+                ", weight=" + weight +
+                ", lifetime=" + lifetime +
+                "}\n";
+    }
 
-	public void setFamily(String family) {
-		this.family = family;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public double getWeight() {
-		return weight;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setWeight(int weight) {
-		this.weight = weight;
-	}
+    public String getFamily() {
+        return family;
+    }
 
-	public double getLifetime() {
-		return lifetime;
-	}
+    public void setFamily(String family) {
+        this.family = family;
+    }
 
-	public void setLifetime(int lifetime) {
-		this.lifetime = lifetime;
-	}
+    public double getWeight() {
+        return weight;
+    }
 
-	public AnimalType getType() {
-		return type;
-	}
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
 
-	public void setType(AnimalType type) {
-		this.type = type;
-	}
+    public double getLifetime() {
+        return lifetime;
+    }
 
-	public  abstract int getFoodWeightPerDay();
+    public void setLifetime(int lifetime) {
+        this.lifetime = lifetime;
+    }
+
+    public AnimalType getType() {
+        return type;
+    }
+
+    public void setType(AnimalType type) {
+        this.type = type;
+    }
+
+    public  abstract int getFoodWeightPerDay();
 
 }
