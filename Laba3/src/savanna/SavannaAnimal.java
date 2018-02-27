@@ -9,12 +9,14 @@ public abstract class SavannaAnimal {
     private int weight;
     private int lifetime;
 
+    public abstract int getFoodWeightPerDay();
+
     public SavannaAnimal(String name, String family, AnimalType type, int weight, int lifetime) {
-        this.name=name;
-        this.family=family;
-        this.type=type;
-        this.weight=weight;
-        this.lifetime=lifetime;
+        this.name = name;
+        this.family = family;
+        this.type = type;
+        this.weight = weight;
+        this.lifetime = lifetime;
     }
 
     @Override
@@ -68,6 +70,5 @@ public abstract class SavannaAnimal {
         this.type = type;
     }
 
-    public  abstract int getFoodWeightPerDay();
 
 }

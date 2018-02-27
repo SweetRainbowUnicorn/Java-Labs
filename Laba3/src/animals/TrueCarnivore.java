@@ -1,15 +1,15 @@
 package animals;
 
-import enums.TimeOfActivity;
 import enums.AnimalType;
+import enums.TimeOfActivity;
 
-public class TrueCarnivore extends Carnivore{
+public class TrueCarnivore extends Carnivore {
     private String animalsForFood;
 
     public TrueCarnivore(String name, String family, AnimalType type, int weight, int lifetime,
                          TimeOfActivity timeOfActivity, String animalsForFood, int weightOfMeatPerDay) {
         super(name, family, type, weight, lifetime, timeOfActivity, weightOfMeatPerDay);
-        this.animalsForFood=animalsForFood;
+        this.animalsForFood = animalsForFood;
     }
 
     public String getAnimalsForFood() {

@@ -1,26 +1,28 @@
 package savanna;
 
+import enums.AnimalType;
+
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
-import enums.AnimalType;
 
 public class Savanna {
     public enum Season {DRY, WET};
-    public enum Mainland {AFRICA, AMERICA, ASIA, AUSTRALIA, INDIA};
-    private double area;
 
+    public enum Mainland {AFRICA, AMERICA, ASIA, AUSTRALIA, INDIA};
+
+    private double area;
     private Season season;
     private Mainland mainland;
-
-    public Savanna(Season season, Mainland mainland, double area) {
-        this.area=area;
-        this.mainland=mainland;
-        this.season=season;
-    }
-
     private List<SavannaAnimal> animals = new LinkedList<>();
     private List<SavannaAnimal> result = new LinkedList<>();
+
+    public Savanna(Season season, Mainland mainland, double area) {
+        this.area = area;
+        this.mainland = mainland;
+        this.season = season;
+    }
+
     public List<SavannaAnimal> findBigCarnivores(int mealWeight) {
         for (SavannaAnimal animal : animals) {
             if (animal.getType() == AnimalType.CARNIVORE && animal.getFoodWeightPerDay() >= mealWeight) {
@@ -30,20 +32,21 @@ public class Savanna {
         return result;
     }
 
-    public void sortByName(List<SavannaAnimal> list){
+    public void sortByName(List<SavannaAnimal> list) {
         list.sort(Comparator.comparing(SavannaAnimal::getName));
     }
 
-
-
     @Override
     public String toString() {
-        return "Savanna{" +
+        return "Savanna:" + "\n" +
                 "area=" + area +
                 ", season=" + season +
                 ", mainland=" + mainland +
-                ", animals=" + animals +
                 '}';
+    }
+
+    public void addAnimal(SavannaAnimal animal) {
+        this.animals.add(animal);
     }
 
     public double getArea() {
@@ -68,10 +71,6 @@ public class Savanna {
 
     public void setMainland(Mainland mainland) {
         this.mainland = mainland;
-    }
-
-    public void addAnimal(SavannaAnimal animal) {
-        this.animals.add(animal);
     }
 
     public List<SavannaAnimal> getAnimals() {

@@ -1,14 +1,14 @@
 package animals;
 
-import savanna.SavannaAnimal;
 import enums.AnimalType;
+import savanna.SavannaAnimal;
 
-public class Herbivore extends SavannaAnimal{
+public class Herbivore extends SavannaAnimal {
     private String plantsForFood;
 
     public Herbivore(String name, String family, AnimalType type, int weight, int lifetime, String plantsForFood) {
-        super(name,family, type, weight, lifetime);
-        this.plantsForFood=plantsForFood;
+        super(name, family, type, weight, lifetime);
+        this.plantsForFood = plantsForFood;
     }
 
     public String getPlantsForFood() {
