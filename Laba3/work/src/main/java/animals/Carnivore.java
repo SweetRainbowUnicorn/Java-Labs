@@ -1,0 +1,28 @@
+package animals;
+
+import enums.AnimalType;
+import savanna.SavannaAnimal;
+
+public class Carnivore extends SavannaAnimal {
+    private int weightOfMeatPerDay;
+
+    public Carnivore(final String name, final String family, final AnimalType type,
+                     final int weight, final int lifetime,
+                     final int weightOfMeatPerDay) {
+        super(name, family, type, weight, lifetime);
+        this.weightOfMeatPerDay = weightOfMeatPerDay;
+    }
+
+    @Override
+    public final int getFoodWeightPerDay() {
+        return weightOfMeatPerDay;
+    }
+
+    public String getHeaders() {
+        return super.getHeaders() + "weight of meat per day";
+    }
+
+    public String toCSV() {
+        return super.toCSV() + "," + weightOfMeatPerDay;
+    }
+}

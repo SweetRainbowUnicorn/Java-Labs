@@ -11,7 +11,9 @@ public abstract class SavannaAnimal {
 
     public abstract int getFoodWeightPerDay();
 
-    public SavannaAnimal(String name, String family, AnimalType type, int weight, int lifetime) {
+    public SavannaAnimal(final String name, final String family,
+                         final AnimalType type, final int weight,
+                         final int lifetime) {
         this.name = name;
         this.family = family;
         this.type = type;
@@ -20,54 +22,22 @@ public abstract class SavannaAnimal {
     }
 
     @Override
-    public String toString() {
-        return "\n" + "SavannaAnimal{" +
-                "name='" + name + '\'' +
-                ", family='" + family + '\'' +
-                ", type=" + type +
-                ", weight=" + weight +
-                ", lifetime=" + lifetime +
-                "}\n";
+    public final String toString() {
+        return "\n" + "SavannaAnimal{"
+                + "name='" + name + '\''
+                + ", family='" + family + '\''
+                + ", type=" + type
+                + ", weight=" + weight
+                + ", lifetime=" + lifetime
+                + "}\n";
     }
 
-    public String getName() {
+    public final String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getFamily() {
-        return family;
-    }
-
-    public void setFamily(String family) {
-        this.family = family;
-    }
-
-    public double getWeight() {
-        return weight;
-    }
-
-    public void setWeight(int weight) {
-        this.weight = weight;
-    }
-
-    public double getLifetime() {
-        return lifetime;
-    }
-
-    public void setLifetime(int lifetime) {
-        this.lifetime = lifetime;
-    }
-
-    public AnimalType getType() {
+    public final AnimalType getType() {
         return type;
-    }
-
-    public void setType(AnimalType type) {
-        this.type = type;
     }
 
 

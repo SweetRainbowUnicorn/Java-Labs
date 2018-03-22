@@ -6,22 +6,14 @@ import savanna.SavannaAnimal;
 public class Herbivore extends SavannaAnimal {
     private String plantsForFood;
 
-    public Herbivore(String name, String family, AnimalType type, int weight, int lifetime, String plantsForFood) {
+    public Herbivore(final String name, final String family, final AnimalType type,
+                     final int weight, final int lifetime, final String plantsForFood) {
         super(name, family, type, weight, lifetime);
         this.plantsForFood = plantsForFood;
     }
 
-    public String getPlantsForFood() {
-        return plantsForFood;
-    }
-
-    public void setPlantsForFood(String plantsForFood) {
-        this.plantsForFood = plantsForFood;
-    }
-
     @Override
-    public int getFoodWeightPerDay() {
-        // FIXME: food count should not depends on the lenght of food plants String
+    public final int getFoodWeightPerDay() {
         return plantsForFood.length();
     }
 

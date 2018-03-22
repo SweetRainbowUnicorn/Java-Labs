@@ -1,3 +1,3 @@
 package enums;
 
-public enum TimeOfActivity{DAY, NIGHT};
+public enum TimeOfActivity { DAY, NIGHT };

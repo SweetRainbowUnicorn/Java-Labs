@@ -1,0 +1,12 @@
+name, family, type, weight, lifetime, weight of meat per day
+Lion,Felidae,CARNIVORE,201,7,7
+
+name, family, type, weight, lifetime, plants for food
+Zebra,Equidae,HERBIVORE,220,21,leaves, grass and roots
+
+name, family, type, weight, lifetime, weight of meat per day
+Condor,Cathartidae,CARNIVORE,13,53,5
+
+name, family, type, weight, lifetime, weight of meat per day
+Spotted Hyena,Hyaenidae,CARNIVORE,47,6,5
+
