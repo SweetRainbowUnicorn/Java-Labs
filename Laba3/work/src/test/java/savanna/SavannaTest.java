@@ -5,18 +5,18 @@ import animals.Herbivore;
 import animals.TrueCarnivore;
 import animals.Vulture;
 import enums.AnimalType;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class SavannaTest {
-    private Savanna savanna;
+  /*  private Savanna savanna;
     private SavannaAnimal lion;
     private SavannaAnimal zebra;
     private SavannaAnimal condor;
@@ -24,48 +24,41 @@ class SavannaTest {
 
     @BeforeEach
     void setUp() {
-        savanna = new Savanna(Savanna.Season.WET, Savanna.Mainland.ASIA, 4500.37);
-        lion = new Carnivore("Lion", "Felidae",
+
+        private static final SavannaAnimal lion = new Carnivore(4,"Lion", "Felidae",
                 AnimalType.CARNIVORE, 201,7, 7);
-        zebra = new Herbivore("Zebra", "Equidae", AnimalType.HERBIVORE,
-                220, 21, "leaves, grass and roots");
-        condor = new Vulture("Condor", "Cathartidae", AnimalType.CARNIVORE,
+        private static final SavannaAnimal zebra = new Herbivore(5,"Zebra", "Equidae", AnimalType.HERBIVORE,
+                220, 2, "leaves, grass and roots");
+        private static final SavannaAnimal condor = new Vulture(6,"Condor", "Cathartidae", AnimalType.CARNIVORE,
                 13, 53, 5);
-        spottedHyena = new TrueCarnivore("Spotted Hyena", "Hyaenidae", AnimalType.CARNIVORE,
+        private static final SavannaAnimal spottedHyena = new TrueCarnivore(7,"Spotted Hyena", "Hyaenidae", AnimalType.CARNIVORE,
                 47, 6, 5);
 
-        savanna.addAnimal(lion);
-        savanna.addAnimal(zebra);
-        savanna.addAnimal(condor);
-        savanna.addAnimal(spottedHyena);
+        private static final Savanna savanna = new Savanna(Savanna.Season.WET, Savanna.Mainland.ASIA, 4500.37);
+        private static final SavannaAnimalWriter writer = new SavannaAnimalWriter();
+        private static final File file = new File("savannaAnimalsList.csv");
+        private Map<Integer,SavannaAnimal> testMap = new HashMap<>();
+        private List<SavannaAnimal> savannaAnimalList = new LinkedList<>(savanna.getSavannaAnimalMap().values());
+        private List<SavannaAnimal> testList = new LinkedList<>();
+
+         @BeforeAll
+        static void addAnimalToList() {
+        savanna.addSavannaAnimalList(lion.getId(),lion);
+        savanna.addSavannaAnimalList(zebra.getId(),zebra);
+        savanna.addSavannaAnimalList(condor.getId(), condor);
+        savanna.addSavannaAnimalList(spottedHyena.getId(), spottedHyena);
 
     }
 
     @Test
-    void setAnimals(){
-        SavannaAnimal lion = new Carnivore("Lion", "Felidae",
-                AnimalType.CARNIVORE, 201,7, 7);
-        SavannaAnimal zebra = new Herbivore("Zebra", "Equidae", AnimalType.HERBIVORE,
-                220, 21, "leaves, grass and roots");
-        SavannaAnimal condor = new Vulture("Condor", "Cathartidae", AnimalType.CARNIVORE,
-                13, 53, 5);
-        SavannaAnimal spottedHyena = new TrueCarnivore("Spotted Hyena", "Hyaenidae", AnimalType.CARNIVORE,
-                47, 6, 5);
-        List<SavannaAnimal> animalList = new ArrayList<>();
-        animalList.add(lion);
-        animalList.add(zebra);
-        animalList.add(condor);
-        animalList.add(spottedHyena);
-
-        savanna.setAnimals(animalList);
-        for (int i = 0; i < animalList.size(); i++) {
-            assertEquals(animalList.get(i), savanna.getAnimals().get(i));
-        }
+    void addSavannaAnimalList() {
+            assertEquals(lion, savanna.getSavannaAnimalMap().get(4));
     }
+
 
     @Test
     void getResult(){
-        List<SavannaAnimal> foundList = savanna.findBigCarnivores(5);
+        Map<Integer, SavannaAnimal> foundList = savanna.findBigCarnivores(5);
         assertEquals(3, foundList.size());
     }
 
@@ -78,33 +71,22 @@ class SavannaTest {
     }
     @Test
     void findBigCarnivores() {
-        List<SavannaAnimal> foundList = savanna.findBigCarnivores(5);
+        Map<Integer, SavannaAnimal> foundList = savanna.findBigCarnivores(5);
         assertEquals(3, foundList.size());
         assertEquals(lion, foundList.get(0));
     }
 
-    @Test
-    void sortByName() {
-        savanna.sortByName(savanna.getAnimals());
 
-        assertEquals(condor, savanna.getAnimals().get(0));
-        assertEquals(lion, savanna.getAnimals().get(1));
-        assertEquals(spottedHyena, savanna.getAnimals().get(2));
-        assertEquals(zebra, savanna.getAnimals().get(3));
-
-    }
 
     @Test
     void writeToFile(){
-        try{
-            SavannaAnimalWriter writer = new SavannaAnimalWriter();
-            writer.writeToFile(savanna.getAnimals());
-        } catch (IOException e){
+        try {
+            writer.writeToFile((List<SavannaAnimal>) savanna.getSavannaAnimalMap());
+            } catch (Exception e) {
             assertTrue(false);
-        }
+            }
         File file = new File("D:\\nulp\\savannaAnimalsList.csv");
         assertEquals(true, file.exists());
     }
-
-
+    */
 }

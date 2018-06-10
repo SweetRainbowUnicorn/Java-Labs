@@ -6,9 +6,9 @@ import savanna.SavannaAnimal;
 public class Herbivore extends SavannaAnimal {
     private String plantsForFood;
 
-    public Herbivore(final String name, final String family, final AnimalType type,
+    public Herbivore(final Integer id, final String name, final String family, final AnimalType type,
                      final int weight, final int lifetime, final String plantsForFood) {
-        super(name, family, type, weight, lifetime);
+        super(id, name, family, type, weight, lifetime);
         this.plantsForFood = plantsForFood;
     }
 
@@ -17,7 +17,7 @@ public class Herbivore extends SavannaAnimal {
     }
 
     @Override
-    public final int getFoodWeightPerDay() {
+    public final int getWeightOfFood() {
         return plantsForFood.length();
     }
 

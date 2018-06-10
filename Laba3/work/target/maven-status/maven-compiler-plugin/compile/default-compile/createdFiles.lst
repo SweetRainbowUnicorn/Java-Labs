@@ -1,0 +1,16 @@
+savanna\Savanna$Season.class
+savanna\SavannaAnimalWriter.class
+savanna\Savanna$Mainland.class
+animals\Vulture.class
+config\JaxRsConfig.class
+dao\AbstractDao.class
+savanna\SavannaAnimal.class
+animals\Carnivore.class
+animals\Herbivore.class
+savanna\Savanna.class
+dao\IDao.class
+dao\SavannaAnimalDaoImpl.class
+enums\AnimalType.class
+service\SavannaAnimalService.class
+dao\SavannaAnimalDao.class
+animals\TrueCarnivore.class

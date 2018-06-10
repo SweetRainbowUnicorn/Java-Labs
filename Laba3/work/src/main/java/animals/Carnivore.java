@@ -6,15 +6,15 @@ import savanna.SavannaAnimal;
 public class Carnivore extends SavannaAnimal {
     private int weightOfMeatPerDay;
 
-    public Carnivore(final String name, final String family, final AnimalType type,
+    public Carnivore(final Integer id, final String name, final String family, final AnimalType type,
                      final int weight, final int lifetime,
                      final int weightOfMeatPerDay) {
-        super(name, family, type, weight, lifetime);
+        super(id, name, family, type, weight, lifetime);
         this.weightOfMeatPerDay = weightOfMeatPerDay;
     }
 
     @Override
-    public final int getFoodWeightPerDay() {
+    public final int getWeightOfFood() {
         return weightOfMeatPerDay;
     }
 

@@ -1,7 +1,6 @@
 package animals;
 
 import enums.AnimalType;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -12,12 +11,12 @@ class TrueCarnivoreTest {
 
     @BeforeEach
     void setUp() {
-        trueCarnivore = new TrueCarnivore("Jakal", "Canidae",
+        trueCarnivore = new TrueCarnivore(8,"Jakal", "Canidae",
                 AnimalType.CARNIVORE, 13, 12, 4);
     }
 
     @Test
     void getFoodWeightPerDay() {
-        assertEquals(4, trueCarnivore.getFoodWeightPerDay());
+        assertEquals(4, trueCarnivore.getWeightOfFood());
     }
 }

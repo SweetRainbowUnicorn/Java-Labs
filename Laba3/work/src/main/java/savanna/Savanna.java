@@ -1,24 +1,32 @@
 package savanna;
 
+import dao.SavannaAnimalDao;
 import enums.AnimalType;
 
-import java.util.Comparator;
-import java.util.LinkedList;
-import java.util.List;
+import javax.enterprise.context.Dependent;
+import javax.inject.Inject;
+import java.io.Serializable;
+import java.util.*;
 
-public class Savanna {
+@Dependent
+public class Savanna implements Serializable{
+
+    private static final long serialVersionUID = 1L;
+
     public enum Season { DRY, WET }
-
     public enum Mainland { AFRICA, AMERICA, ASIA, AUSTRALIA, INDIA }
 
     private double area;
     private Season season;
     private Mainland mainland;
-    private List<SavannaAnimal> animals = new LinkedList<>();
+    private static Map<Integer, SavannaAnimal> savannaAnimalMap =new HashMap<>();
     private List<SavannaAnimal> result = new LinkedList<>();
 
-    public int getResult() {
-        return result.size();
+    @Inject
+    public SavannaAnimalDao savannaAnimalDao;
+
+    public Savanna(){
+
     }
 
     public Savanna(final Season season, final Mainland mainland,
@@ -28,12 +36,14 @@ public class Savanna {
         this.season = season;
     }
 
-    public final List<SavannaAnimal> findBigCarnivores(final int mealWeight) {
-        for (SavannaAnimal animal : animals) {
-            if (animal.getType() == AnimalType.CARNIVORE
-                    && animal.getFoodWeightPerDay() >= mealWeight) {
-                result.add(animal);
-            }
+
+    public final Map<Integer,SavannaAnimal> findBigCarnivores(final int mealWeight) {
+        final Map<Integer,SavannaAnimal> result = new HashMap<>();
+        for (Map.Entry<Integer,SavannaAnimal> animal: savannaAnimalMap.entrySet()) {
+               if (animal.getValue().getType() == AnimalType.CARNIVORE
+                       && animal.getValue().getWeightOfFood() >= mealWeight) {
+                          result.put(animal.getKey(),animal.getValue());
+               }
         }
         return result;
     }
@@ -51,15 +61,30 @@ public class Savanna {
                 + '}';
     }
 
-    public final void addAnimal(final SavannaAnimal animal) {
-        this.animals.add(animal);
+    public SavannaAnimal getSavannaAnimal(Integer id){
+        return savannaAnimalDao.findById(id);
     }
 
-    public final List<SavannaAnimal> getAnimals() {
-        return animals;
+    public void addSavannaAnimal(SavannaAnimal savannaAnimal) {
+        savannaAnimalDao.persist(savannaAnimal);
     }
 
-    public void setAnimals(List<SavannaAnimal> animals) {
-        this.animals = animals;
+    public  void updateSavannaAnimal(SavannaAnimal savannaAnimal) {
+        savannaAnimalDao.update(savannaAnimal);
     }
+
+    public  void deleteSavannaAnimal(Integer id) {
+        savannaAnimalDao.delete(id);
+    }
+
+    public final Map<Integer, SavannaAnimal> getSavannaAnimalMap() {
+        return savannaAnimalMap;
+    }
+
+    public int getResult() {
+        return result.size();
+    }
+
+
+
 }

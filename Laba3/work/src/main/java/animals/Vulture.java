@@ -4,11 +4,11 @@ import enums.AnimalType;
 
 public class Vulture extends Carnivore {
 
-    public Vulture(final String name, final String family,
+    public Vulture(final Integer id, final String name, final String family,
                    final AnimalType type,
                    final int weight, final int lifetime,
                    final int weightOfFood) {
-        super(name, family, type, weight, lifetime, weightOfFood);
+        super(id, name, family, type, weight, lifetime, weightOfFood);
     }
 
     public String getHeaders() {
