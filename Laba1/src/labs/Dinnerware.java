@@ -8,13 +8,21 @@ public class Dinnerware {
     private double diameter;
     private double price;
 
-    public static double totalPrice = 0;
+    private static double totalPrice = 0;
+
+    public static double getTotalPrice() {
+        return totalPrice;
+    }
+
+    public static void setTotalPrice(final double totalPrice) {
+        Dinnerware.totalPrice = totalPrice;
+    }
 
     public String getColor() {
         return color;
     }
 
-    public void setColor(String color) {
+    public void setColor(final String color) {
         this.color = color;
     }
 
@@ -22,7 +30,7 @@ public class Dinnerware {
         return typeOfDish;
     }
 
-    public void setTypeOfDish(String typeOfDish) {
+    public void setTypeOfDish(final String typeOfDish) {
         this.typeOfDish = typeOfDish;
     }
 
@@ -30,7 +38,7 @@ public class Dinnerware {
         return material;
     }
 
-    public void setMaterial(String material) {
+    public void setMaterial(final String material) {
         this.material = material;
     }
 
@@ -38,7 +46,7 @@ public class Dinnerware {
         return diameter;
     }
 
-    public void setDiameter(double diameter) {
+    public void setDiameter(final double diameter) {
         this.diameter = diameter;
     }
 
@@ -46,14 +54,15 @@ public class Dinnerware {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(final double price) {
         totalPrice = totalPrice - this.price + price;
         this.price = price;
 
     }
 
     public String toString() {
-        return "Color: " + getColor() + '\n' + "Type of dish: " + getTypeOfDish() + '\n' + "Material: " + getMaterial() + '\n' + "Diameter: " + getDiameter() + '\n' + "Price: " + getPrice();
+        return "Color: " + getColor() + '\n' + "Type of dish: " + getTypeOfDish() + '\n' + "Material: " + getMaterial()
+                + '\n' + "Diameter: " + getDiameter() + '\n' + "Price: " + getPrice() + '\n';
     }
 
     public static void printStaticSum() {
@@ -64,7 +73,8 @@ public class Dinnerware {
         System.out.println("Total price: " + totalPrice);
     }
 
-    public void resetValues(String color, String typeOfDish, String material, double diameter, double price) {
+    public void resetValues(final String color, final String typeOfDish, final String material, final double diameter,
+                            final double price) {
         this.color = color;
         this.typeOfDish = typeOfDish;
         this.material = material;
@@ -76,14 +86,15 @@ public class Dinnerware {
 
     }
 
-    public Dinnerware(String color, String typeOfDish, String material, double price) {
+    public Dinnerware(final String color, final String typeOfDish, final String material, final double price) {
         this.color = color;
         this.typeOfDish = typeOfDish;
         this.material = material;
         setPrice(price);
     }
 
-    public Dinnerware(String color, String typeOfDish, String material, double diameter, double price) {
+    public Dinnerware(final String color, final String typeOfDish, final String material, final double diameter,
+                      final double price) {
         this.color = color;
         this.typeOfDish = typeOfDish;
         this.material = material;
@@ -92,15 +103,15 @@ public class Dinnerware {
     }
 
     public static void main(String[] args) {
-        Dinnerware Plate = new Dinnerware("red", "main course", "glass", 27.5, 90.0);
-        Dinnerware Mug = new Dinnerware("white", "drink", "ceramics", 50.75);
-        Dinnerware Bowl = new Dinnerware();
+        Dinnerware plate = new Dinnerware("red", "main course", "glass", 27.5, 90.0);
+        Dinnerware mug = new Dinnerware("white", "drink", "ceramics", 50.75);
+        Dinnerware bowl = new Dinnerware();
         System.out.println("Plate:");
-        System.out.println(Plate.toString());
+        System.out.println(plate.toString());
         System.out.println("Mug:");
-        System.out.println(Mug.toString());
+        System.out.println(mug.toString());
         System.out.println("Bowl:");
-        System.out.println(Bowl.toString());
+        System.out.println(bowl.toString());
         System.out.println("Dinnerware:");
         Dinnerware.printStaticSum();
     }
